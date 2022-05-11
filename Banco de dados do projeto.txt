@@ -1,0 +1,53 @@
+create database if not exists GerenciamentoVendas;
+use GerenciamentoVendas;
+
+create table if not exists usuario (
+  id_Usuario int primary key auto_increment,
+  login varchar (30), 
+  senha varchar(15)
+  );
+
+create table if not exists cliente (
+  id_cliente int primary key auto_increment,
+  cnpj varchar (50),
+  cpf varchar (30), 
+  email varchar (50), 
+  bairro varchar (20),
+  numero varchar (50),
+  endereco varchar(30),
+  cidade varchar (30),
+  estado varchar(40),
+  telefone varchar(30),
+  data_nascimento varchar(30)
+  
+  
+  );
+ 
+create table if not exists produto (
+  id_produto int primary key auto_increment,
+  nota_fiscal varchar(30),
+  quantidade varchar(50),
+  descrição varchar (30),
+  valor varchar(50),
+  fornercedor varchar(50)
+  
+  );
+
+
+
+create table if not exists venda(
+ id_venda int primary key auto_increment,
+ id_cliente int,
+ foreign key (id_cliente) references cliente(id_cliente), 
+ data_venda varchar (50),
+ pag_cartao varchar(50),
+ pag_dinheiro varchar(30),
+ recebido varchar(30),
+ desconto varchar(50),
+ id_Usuario int,
+ foreign key (id_Usuario) references Usuario(id_Usuario) 
+ 
+
+  );
+  
+  
